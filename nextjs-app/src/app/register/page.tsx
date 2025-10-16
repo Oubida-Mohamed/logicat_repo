@@ -119,7 +119,7 @@ export default function Register() {
           email: "",
           password: ""
         });
-        // Optional: Redirect to login page or dashboard
+
         setTimeout(() => {
           window.location.href = '/login';
         }, 500);
@@ -246,7 +246,6 @@ export default function Register() {
                 {/* Button */}
                 <div>
                   <Button 
-                    // type="submit" 
                     className="w-full bg-blue-900 cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed" 
                     size="sm"
                     disabled={isLoading}

@@ -4,19 +4,18 @@ import Label from "../components/form/Label";
 import Input from "../components/form/input/InputField";
 import Button from "../components/ui/button/Button";
 import axios from "axios";
-import { getCookie } from "@/utils/cookies";
-import { useRouter } from "next/navigation"; // Changed from react-router
+import { useRouter } from "next/navigation"; 
 
 export default function Login() {
-  const [email, setEmail] = useState<string>(""); // Initialize with empty string instead of null
-  const [password, setPassword] = useState<string>(""); // Initialize with empty string instead of null
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Added loading state
+  const [isLoading, setIsLoading] = useState<boolean>(false); 
   const router = useRouter(); // Use Next.js router
 
-  const handleLogin = async (e: React.FormEvent) => { // Renamed and added event parameter
-    e.preventDefault(); // Prevent form submission refresh
-    setError(null); // Clear previous errors
+  const handleLogin = async (e: React.FormEvent) => { 
+    e.preventDefault();
+    setError(null);
     setIsLoading(true);
 
     // Validation
@@ -40,14 +39,10 @@ export default function Login() {
         password: password.trim(),
       });
 
-      if (response.status === 200 || response.status === 201) { // Check for common success statuses
-        // Store token if provided in response
+      if (response.status === 200 || response.status === 201) {
         if (response.data.token) {
-          // You might want to use your getCookie utility or localStorage
-          document.cookie = `TOKEN=${response.data.token}; path=/; max-age=86400`; // 24 hours
+          document.cookie = `TOKEN=${response.data.token}; path=/; max-age=86400`; // 24 h
         }
-        console.log("dashboard")
-        // Redirect to dashboard
         router.push('/dashboard');
       } else {
         setError("Login failed. Please try again.");
@@ -74,7 +69,6 @@ export default function Login() {
   return (
     <div className="flex flex-col flex-1">
       <div className="w-full max-w-md pt-10 mx-auto">
-        {/* You might want to add some content here */}
       </div>
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
@@ -88,16 +82,16 @@ export default function Login() {
           </div>
 
           <div>
-            <form onSubmit={handleLogin}> {/* Added onSubmit handler */}
+            <form onSubmit={handleLogin}>
               <div className="space-y-6">
                 <div>
                   <Label>
                     Email <span className="text-error-500">*</span>
                   </Label>
                   <Input 
-                    type="email" // Added type="email" for better UX
+                    type="email" 
                     placeholder="info@gmail.com" 
-                    value={email} // Added value prop for controlled input
+                    value={email} 
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
@@ -110,7 +104,7 @@ export default function Login() {
                     <Input
                       type="password"
                       placeholder="Enter your password"
-                      value={password} // Added value prop for controlled input
+                      value={password} 
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
@@ -119,10 +113,9 @@ export default function Login() {
 
                 <div>
                   <Button 
-                    // type="submit" // Added type="submit"
                     className="w-full bg-blue-900 cursor-pointer" 
                     size="sm" 
-                    disabled={isLoading} // Disable button when loading
+                    disabled={isLoading}
                   >
                     {isLoading ? "Signing in..." : "Sign in"}
                   </Button>

@@ -18,14 +18,9 @@ export default function Dashboard() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [isClient, setIsClient] = useState<boolean>(false);
-
-  const user = useUser();
-
-  // console.log(tasks[0]->created_at)
-  
-  // États pour les filtres et recherche
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const user = useUser();
   
   const [formData, setFormData] = useState({
     task: "",
