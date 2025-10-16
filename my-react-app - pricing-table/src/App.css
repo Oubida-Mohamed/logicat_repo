@@ -1,0 +1,208 @@
+/* PricingTable.css */
+.pricing-table {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.pricing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.currency-selector {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.currency-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.currency-btn.active {
+  background: #007bff;
+  color: white;
+}
+
+.currency-btn:hover:not(.active) {
+  background: #e9ecef;
+}
+
+.pricing-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+}
+
+.billing-toggle {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn.active {
+  background: #007bff;
+  color: white;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: #e9ecef;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.plan-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  background: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.plan-card.popular {
+  border-color: #007bff;
+  border-width: 2px;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.plan-name {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.user-options {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.billing-period {
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.subscribe-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 2rem;
+
+}
+
+.subscribe-btn:hover {
+  background: #0056b3;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.feature-item {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.checkmark {
+  color: #28a745;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.learn-more {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.learn-more:hover {
+  color: #0056b3;
+}
+
+.togle-side-button {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+.product-selector {
+    margin-top: 10px ;
+    margin-bottom: 10px ;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pricing-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .plans-container {
+    grid-template-columns: 1fr;
+  }
+}
